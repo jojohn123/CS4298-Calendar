@@ -50,6 +50,8 @@ class CalendarViewController: UIViewController,UICollectionViewDataSource,UIColl
             if isToday(textLabel.currentTitle!) {
                 textLabel.backgroundColor = UIColor.brown
                 textLabel.setTitleColor(UIColor.white, for: .normal)
+            } else {
+                textLabel.backgroundColor = UIColor.white
             }
         }
         return cell
