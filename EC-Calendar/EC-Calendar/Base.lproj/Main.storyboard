@@ -42,7 +42,7 @@
             </objects>
             <point key="canvasLocation" x="2164" y="363"/>
         </scene>
-        <!--My Calendar-->
+        <!--EC-Calendar-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CalendarViewController" customModule="EC_Calendar" customModuleProvider="target" sceneMemberID="viewController">
@@ -210,7 +210,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="My Calendar" id="hCh-Hp-R7W"/>
+                    <navigationItem key="navigationItem" title="EC-Calendar" id="hCh-Hp-R7W"/>
                     <connections>
                         <outlet property="calendar" destination="Prt-Tp-K36" id="i6f-PJ-dHK"/>
                         <outlet property="timeLabel" destination="AT2-z7-v75" id="UNX-qz-s4y"/>

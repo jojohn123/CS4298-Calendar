@@ -13,7 +13,7 @@ class CalendarViewController: UIViewController,UICollectionViewDataSource,UIColl
     
     @IBOutlet var timeLabel: UILabel!
     
-    var months = [1: ("Jan", 0), 2: ("Feb", 3), 3: ("Mar", 3), 4: ("Apr", 6), 5:("May", 1), 6:("Jun", 4),7: ("Jul", 6), 8:("Aug", 2), 9:("Sept", 5), 10:("Oct", 6), 11:("Nov", 2), 12:("Dec", 4)]
+    var months = [1: ("Jan", "一月", 0), 2: ("Feb", "二月", 3), 3: ("Mar", "三月", 3), 4: ("Apr","四月", 6), 5:("May","五月", 1), 6:("Jun", "六月", 4),7: ("Jul", "七月", 6), 8:("Aug", "八月", 2), 9:("Sept", "九月", 5), 10:("Oct", "十月", 6), 11:("Nov", "十一月", 2), 12:("Dec", "十二月", 4)]
     
     var currentYear = Calendar.current.component(.year, from: Date())
     
@@ -24,13 +24,13 @@ class CalendarViewController: UIViewController,UICollectionViewDataSource,UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return numberOfDaysInThisMonth + months[currentMonth]!.1
+        return numberOfDaysInThisMonth + months[currentMonth]!.2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
         if let textLabel = cell.contentView.subviews[0] as? UIButton{
-            var NumberOfDaysAdded = months[currentMonth]!.1
+            var NumberOfDaysAdded = months[currentMonth]!.2
             if isLeapYearAndMarch() {
                 NumberOfDaysAdded += 1
             }
@@ -44,7 +44,10 @@ class CalendarViewController: UIViewController,UICollectionViewDataSource,UIColl
             } else {
                 textLabel.setTitleColor(UIColor.darkGray, for: .normal)
             }
-            
+            if isToday(textLabel.title(for: .normal)!) {
+                textLabel.backgroundColor = UIColor.brown
+                textLabel.setTitleColor(UIColor.white, for: .normal)
+            }
         }
         return cell
     }
@@ -74,7 +77,12 @@ class CalendarViewController: UIViewController,UICollectionViewDataSource,UIColl
     }
 
     func setDate() {
-        timeLabel.text = months[currentMonth]!.0 + " \(currentYear)"
+        if isEng() {
+            timeLabel.text = months[currentMonth]!.0 + " \(currentYear)"
+        } else {
+            timeLabel.text = months[currentMonth]!.1 + " \(currentYear)"
+        }
+        
         calendar.reloadData()
     }
     
@@ -111,5 +119,17 @@ class CalendarViewController: UIViewController,UICollectionViewDataSource,UIColl
     
     func isSunday(_ indexPath: IndexPath) -> Bool {
         return ((indexPath.row + 1) % 7) == 0
+    }
+    
+    func isToday(_ day: String) -> Bool {
+        let sameYear = currentYear == Calendar.current.component(.year, from: Date())
+        let sameMonth = currentMonth == Calendar.current.component(.month, from: Date())
+        let sameDay = Int(day) == Calendar.current.component(.day, from: Date())
+        return sameYear && sameMonth && sameDay
+    }
+    
+    func isEng() -> Bool {
+        let lang = NSLocale.preferredLanguages[0]
+        return lang == "en"
     }
 }
