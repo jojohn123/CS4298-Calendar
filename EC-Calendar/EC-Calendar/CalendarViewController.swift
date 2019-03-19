@@ -30,6 +30,9 @@ class CalendarViewController: UIViewController,UICollectionViewDataSource,UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
         if let textLabel = cell.contentView.subviews[0] as? UIButton{
+            textLabel.layer.cornerRadius = 14
+            textLabel.clipsToBounds = true
+            
             var NumberOfDaysAdded = months[currentMonth]!.2
             if isLeapYearAndMarch() {
                 NumberOfDaysAdded += 1
@@ -44,7 +47,7 @@ class CalendarViewController: UIViewController,UICollectionViewDataSource,UIColl
             } else {
                 textLabel.setTitleColor(UIColor.darkGray, for: .normal)
             }
-            if isToday(textLabel.title(for: .normal)!) {
+            if isToday(textLabel.currentTitle!) {
                 textLabel.backgroundColor = UIColor.brown
                 textLabel.setTitleColor(UIColor.white, for: .normal)
             }
