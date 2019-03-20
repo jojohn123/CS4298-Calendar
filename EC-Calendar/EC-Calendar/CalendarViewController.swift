@@ -13,7 +13,7 @@ class CalendarViewController: UIViewController,UICollectionViewDataSource,UIColl
     
     @IBOutlet var timeLabel: UILabel!
     
-    var months = [1: ("Jan", "一月", 0), 2: ("Feb", "二月", 3), 3: ("Mar", "三月", 3), 4: ("Apr","四月", 6), 5:("May","五月", 1), 6:("Jun", "六月", 4),7: ("Jul", "七月", 6), 8:("Aug", "八月", 2), 9:("Sept", "九月", 5), 10:("Oct", "十月", 6), 11:("Nov", "十一月", 2), 12:("Dec", "十二月", 4)]
+    var months = [1: ("Jan", "一月", 0), 2: ("Feb", "二月", 3), 3: ("Mar", "三月", 4), 4: ("Apr","四月", 0), 5:("May","五月", 2), 6:("Jun", "六月", 5),7: ("Jul", "七月", 0), 8:("Aug", "八月", 3), 9:("Sept", "九月", 5), 10:("Oct", "十月", 0), 11:("Nov", "十一月", 3), 12:("Dec", "十二月", 4)]
     
     var currentYear = Calendar.current.component(.year, from: Date())
     
@@ -24,7 +24,16 @@ class CalendarViewController: UIViewController,UICollectionViewDataSource,UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return numberOfDaysInThisMonth + months[currentMonth]!.2
+        var adjustment = months[currentMonth]!.2
+        if !isLeapYear() {
+            if isFeb() {
+                adjustment += 1
+            } else if isAug() {
+                adjustment -= 1
+            }
+        }
+        
+        return numberOfDaysInThisMonth + adjustment
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -33,16 +42,16 @@ class CalendarViewController: UIViewController,UICollectionViewDataSource,UIColl
             textLabel.layer.cornerRadius = 14
             textLabel.clipsToBounds = true
             
-            var NumberOfDaysAdded = months[currentMonth]!.2
-            if isLeapYearAndMarch() {
-                NumberOfDaysAdded += 1
-            }
+            let NumberOfDaysAdded = months[currentMonth]!.2
+//            if isLeapYearAndFeb() {
+//                NumberOfDaysAdded += 1
+//            }
             if indexPath.row < NumberOfDaysAdded {
                 textLabel.setTitle("", for: .normal)
             } else {
                 textLabel.setTitle("\(indexPath.row + 1 - NumberOfDaysAdded)", for: .normal)
             }
-            if isSunday(indexPath) {
+            if isSunday(indexPath) || is1stDec(textLabel.currentTitle!) {
                 textLabel.setTitleColor(UIColor.lightGray, for: .normal)
             } else {
                 textLabel.setTitleColor(UIColor.darkGray, for: .normal)
@@ -118,8 +127,16 @@ class CalendarViewController: UIViewController,UICollectionViewDataSource,UIColl
         return range?.count ?? 0
     }
     
-    func isLeapYearAndMarch() -> Bool {
-        return currentYear % 4 == 0 && currentMonth == 3
+    func isLeapYear() -> Bool {
+        return currentYear % 4 == 0
+    }
+    
+    func isFeb() -> Bool {
+        return currentMonth == 2
+    }
+    
+    func isAug() -> Bool {
+        return currentMonth == 8
     }
     
     func isSunday(_ indexPath: IndexPath) -> Bool {
@@ -133,8 +150,13 @@ class CalendarViewController: UIViewController,UICollectionViewDataSource,UIColl
         return sameYear && sameMonth && sameDay
     }
     
+    func is1stDec(_ day: String) -> Bool {
+        let firstDayOfMonth = Int(day) == 1
+        return currentMonth == 12 && firstDayOfMonth
+    }
+    
     func isEng() -> Bool {
         let lang = NSLocale.preferredLanguages[0]
-        return lang == "en"
+        return lang.contains("en")
     }
 }
