@@ -19,6 +19,8 @@ class CalendarViewController: UIViewController,UICollectionViewDataSource,UIColl
     
     var currentMonth = Calendar.current.component(.month, from: Date())
     
+    var dayKeyToPass = ""
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -62,8 +64,19 @@ class CalendarViewController: UIViewController,UICollectionViewDataSource,UIColl
             } else {
                 textLabel.backgroundColor = UIColor.white
             }
+            // added by Trevor 22/3
+            textLabel.addTarget(self, action: #selector(self.pressed), for: .touchUpInside)
         }
+        
         return cell
+    }
+    
+    // added by Trevor 22/3
+    @objc func pressed(sender: UIButton!) {
+        let dateKey = String(currentYear)+"-"+String(currentMonth)+"-"+sender.titleLabel!.text!
+        self.dayKeyToPass = dateKey
+        performSegue(withIdentifier: "toDiaryView", sender: self)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -158,5 +171,22 @@ class CalendarViewController: UIViewController,UICollectionViewDataSource,UIColl
     func isEng() -> Bool {
         let lang = NSLocale.preferredLanguages[0]
         return lang.contains("en")
+    }
+    
+    // added by Trevor 22/3
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? DiaryViewController {
+            destination.thisDateKey = dayKeyToPass
+        }
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if event?.subtype == UIEvent.EventSubtype.motionShake {
+            print("SHAKE")
+            let alert = UIAlertController(title: "Alert", message: "Shake gesture is detected", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
+        }
     }
 }
