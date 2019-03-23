@@ -69,7 +69,7 @@ class CalendarViewController: UIViewController,UICollectionViewDataSource,UIColl
                 dayButton.backgroundColor = UIColor.white
             }
             // added by Trevor 22/3
-            textLabel.addTarget(self, action: #selector(self.pressed), for: .touchUpInside)
+            dayButton.addTarget(self, action: #selector(self.pressed), for: .touchUpInside)
         }
         
         return cell
