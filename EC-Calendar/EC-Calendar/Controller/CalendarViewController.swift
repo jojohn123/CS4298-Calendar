@@ -118,6 +118,10 @@ class CalendarViewController: UIViewController,UICollectionViewDataSource,UIColl
     }
     
     @IBAction func setLastMonth(_ sender: UIButton) {
+        setLastMonth()
+    }
+    
+    func setLastMonth() {
         currentMonth -= 1
         if currentMonth == 0 {
             currentMonth = 12
@@ -127,6 +131,10 @@ class CalendarViewController: UIViewController,UICollectionViewDataSource,UIColl
     }
     
     @IBAction func setNextMonth(_ sender: UIButton) {
+        setNextMonth()
+    }
+    
+    func setNextMonth() {
         currentMonth += 1
         if currentMonth == 13 {
             currentMonth = 1
@@ -187,10 +195,7 @@ class CalendarViewController: UIViewController,UICollectionViewDataSource,UIColl
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if event?.subtype == UIEvent.EventSubtype.motionShake {
             print("SHAKE")
-            let alert = UIAlertController(title: "Alert", message: "Shake gesture is detected", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
-            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-            self.present(alert, animated: true)
+            setNextMonth()
         }
     }
 }
