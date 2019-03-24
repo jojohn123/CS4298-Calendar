@@ -497,38 +497,33 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iU9-8r-qMg">
-                                <rect key="frame" x="20" y="568" width="335" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="onSave:" destination="Sdg-qJ-RcU" eventType="touchUpInside" id="uu7-VY-ULM"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="VBo-Ge-8sV" firstAttribute="leading" secondItem="Hm5-MA-CKX" secondAttribute="leading" constant="20" id="0MH-tw-JEI"/>
                             <constraint firstItem="Hm5-MA-CKX" firstAttribute="trailing" secondItem="k2m-Uq-oz4" secondAttribute="trailing" constant="20" id="1FJ-ar-b9c"/>
-                            <constraint firstItem="Hm5-MA-CKX" firstAttribute="trailing" secondItem="iU9-8r-qMg" secondAttribute="trailing" constant="20" id="8rx-xr-VQl"/>
                             <constraint firstItem="Hm5-MA-CKX" firstAttribute="trailing" secondItem="VBo-Ge-8sV" secondAttribute="trailing" constant="20" id="DI8-g3-K9I"/>
                             <constraint firstItem="k2m-Uq-oz4" firstAttribute="top" secondItem="VBo-Ge-8sV" secondAttribute="bottom" constant="20" id="Ib0-oA-qqu"/>
-                            <constraint firstItem="iU9-8r-qMg" firstAttribute="leading" secondItem="Hm5-MA-CKX" secondAttribute="leading" constant="20" id="N46-C3-eIC"/>
                             <constraint firstItem="eAT-be-uJ0" firstAttribute="leading" secondItem="Hm5-MA-CKX" secondAttribute="leading" constant="20" id="NwP-vU-tdX"/>
                             <constraint firstItem="Hm5-MA-CKX" firstAttribute="trailing" secondItem="Hd4-U4-ODA" secondAttribute="trailing" constant="20" id="OmY-v5-kpY"/>
+                            <constraint firstItem="Hm5-MA-CKX" firstAttribute="bottom" secondItem="eAT-be-uJ0" secondAttribute="bottom" constant="70" id="QWN-77-puX"/>
                             <constraint firstItem="eAT-be-uJ0" firstAttribute="top" secondItem="Hd4-U4-ODA" secondAttribute="bottom" constant="20" id="QgY-OX-TnF"/>
                             <constraint firstItem="Hm5-MA-CKX" firstAttribute="trailing" secondItem="eAT-be-uJ0" secondAttribute="trailing" constant="20" id="UR6-um-rpw"/>
                             <constraint firstItem="Hd4-U4-ODA" firstAttribute="top" secondItem="k2m-Uq-oz4" secondAttribute="bottom" constant="20" id="W6K-7g-mLq"/>
-                            <constraint firstItem="iU9-8r-qMg" firstAttribute="top" secondItem="eAT-be-uJ0" secondAttribute="bottom" constant="20" id="Zcs-eJ-Yth"/>
                             <constraint firstItem="Hd4-U4-ODA" firstAttribute="leading" secondItem="Hm5-MA-CKX" secondAttribute="leading" constant="20" id="rIe-3V-ZRW"/>
                             <constraint firstItem="VBo-Ge-8sV" firstAttribute="top" secondItem="Hm5-MA-CKX" secondAttribute="top" constant="10" id="rh3-dq-IUy"/>
                             <constraint firstItem="k2m-Uq-oz4" firstAttribute="leading" secondItem="Hm5-MA-CKX" secondAttribute="leading" constant="20" id="y36-0Y-ocg"/>
-                            <constraint firstItem="Hm5-MA-CKX" firstAttribute="bottom" secondItem="iU9-8r-qMg" secondAttribute="bottom" constant="20" id="zTh-f4-6bs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hm5-MA-CKX"/>
                     </view>
                     <navigationItem key="navigationItem" title="Diary" id="Dm1-Eg-7qH">
                         <barButtonItem key="backBarButtonItem" title="EC-Calendar" id="AYr-Sk-5bi">
                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="9hA-tp-CrO">
+                            <connections>
+                                <action selector="onDonePressed:" destination="Sdg-qJ-RcU" id="ewU-zZ-JgJ"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>

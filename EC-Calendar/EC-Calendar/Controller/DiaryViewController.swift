@@ -9,7 +9,7 @@
 
 import UIKit
 
-class DiaryViewController: UIViewController {
+class DiaryViewController: UIViewController, UITextFieldDelegate {
     
     var thisDateKey = ""
     var titleKey = ""
@@ -31,17 +31,34 @@ class DiaryViewController: UIViewController {
             self.contentText.text = "enter your diary here"
         }
         dateOfThisDay.text = thisDateKey
+        
+        self.titleTexField.delegate = self
 //        print(thisDateKey)
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func onSave(_ sender: Any) {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+//    @IBAction func onSave(_ sender: Any) {
+//        let titleString = titleTexField.text ?? "Untitled"
+//        let contentString = contentText.text ?? "enter your diary here"
+//        UserDefaults.standard.set(titleString , forKey: self.titleKey)
+//        UserDefaults.standard.set(contentString , forKey: self.contentKey)
+//    }
+    
+    @IBAction func onDonePressed(_ sender: Any) {
         let titleString = titleTexField.text ?? "Untitled"
         let contentString = contentText.text ?? "enter your diary here"
         UserDefaults.standard.set(titleString , forKey: self.titleKey)
         UserDefaults.standard.set(contentString , forKey: self.contentKey)
+        self.view.endEditing(true)
+        let alert = UIAlertController(title: "Alert", message: "Diary has been saved", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        self.present(alert, animated: true)
     }
-    
     /*
     // MARK: - Navigation
 
