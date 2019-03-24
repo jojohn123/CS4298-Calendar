@@ -14,6 +14,8 @@
 		5380A23A221FCC41005FE1E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5380A238221FCC41005FE1E4 /* Main.storyboard */; };
 		5380A23C221FCC43005FE1E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5380A23B221FCC43005FE1E4 /* Assets.xcassets */; };
 		5380A23F221FCC43005FE1E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5380A23D221FCC43005FE1E4 /* LaunchScreen.storyboard */; };
+		762EE46C2247880A006A0D05 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762EE46B2247880A006A0D05 /* EmailViewController.swift */; };
+		762EE46F22478C80006A0D05 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762EE46E22478C80006A0D05 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		5380A23B221FCC43005FE1E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5380A23E221FCC43005FE1E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5380A240221FCC43005FE1E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		762EE46B2247880A006A0D05 /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
+		762EE46E22478C80006A0D05 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		E1F43DB822413A6B00DAC8D6 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -34,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				762EE46F22478C80006A0D05 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +59,7 @@
 			children = (
 				5380A233221FCC41005FE1E4 /* EC-Calendar */,
 				5380A232221FCC41005FE1E4 /* Products */,
+				762EE46D22478C80006A0D05 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,11 +78,20 @@
 				5380A234221FCC41005FE1E4 /* AppDelegate.swift */,
 				5380A236221FCC41005FE1E4 /* ViewController.swift */,
 				5380A238221FCC41005FE1E4 /* Main.storyboard */,
+				762EE46B2247880A006A0D05 /* EmailViewController.swift */,
 				5380A23B221FCC43005FE1E4 /* Assets.xcassets */,
 				5380A23D221FCC43005FE1E4 /* LaunchScreen.storyboard */,
 				5380A240221FCC43005FE1E4 /* Info.plist */,
 			);
 			path = "EC-Calendar";
+			sourceTree = "<group>";
+		};
+		762EE46D22478C80006A0D05 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				762EE46E22478C80006A0D05 /* MessageUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +169,7 @@
 				53210247223E3EE60063A62F /* CalendarViewController.swift in Sources */,
 				5380A237221FCC41005FE1E4 /* ViewController.swift in Sources */,
 				5380A235221FCC41005FE1E4 /* AppDelegate.swift in Sources */,
+				762EE46C2247880A006A0D05 /* EmailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
