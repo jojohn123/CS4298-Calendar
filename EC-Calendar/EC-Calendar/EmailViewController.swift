@@ -11,49 +11,35 @@ import MessageUI
 
 class EmailViewController: UIViewController,UITextViewDelegate, MFMailComposeViewControllerDelegate {
 
-    
-    @IBOutlet weak var btn: UIButton!
-
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var emailAddress: UITextField!
     @IBOutlet weak var textInput: UITextView!
     
-    @IBAction func dismissKeyboard(_ sender: Any) {
-        
-        self.resignFirstResponder()
-    }
+//    @IBAction func dismissKeyboard(_ sender: Any) {
+//        self.resignFirstResponder()
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Email Us"
-        // Do any additional setup after loading the view.
+        self.name.delegate = self as? UITextFieldDelegate
+        self.emailAddress.delegate = self as? UITextFieldDelegate
+        self.textInput.delegate = self
     }
     
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        
-        if text == "\n" {
-            
-            textView.resignFirstResponder()
-            return false
-            
-        }
-        
-        return true
-        
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
-   
 
-    
     @IBAction func sendEmail(_ sender: UIButton) {
         if MFMailComposeViewController.canSendMail() {
             let mc = MFMailComposeViewController()
             mc.mailComposeDelegate = self
-            let recipients = ["abc@123.com"]
+            let recipients = ["test123@xxx.com.hk"]
             mc.setToRecipients(recipients)
             mc.setSubject(name.text! + " - my app")
             mc.setMessageBody("<p>Name: \(name.text!)</p><p>Email: \(emailAddress.text!)</p><p>Message: \(textInput.text!)</p>", isHTML: true)
@@ -61,10 +47,7 @@ class EmailViewController: UIViewController,UITextViewDelegate, MFMailComposeVie
         } else {
             print("Cannot send email!")
         }
-        
-        
     }
-    
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         switch result {
@@ -82,15 +65,4 @@ class EmailViewController: UIViewController,UITextViewDelegate, MFMailComposeVie
         self.dismiss(animated: true)
         
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
