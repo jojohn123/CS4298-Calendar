@@ -124,16 +124,16 @@
             </objects>
             <point key="canvasLocation" x="1754" y="1122"/>
         </scene>
-        <!--View Controller-->
+        <!--Email View Controller-->
         <scene sceneID="h0N-oy-Mol">
             <objects>
-                <viewController id="qIO-RS-twj" sceneMemberID="viewController">
+                <viewController id="qIO-RS-twj" customClass="EmailViewController" customModule="EC_Calendar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yvk-aA-WJe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xem-mT-UyO">
-                                <rect key="frame" x="32" y="90" width="310" height="371.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xem-mT-UyO">
+                                <rect key="frame" x="32" y="90" width="310" height="372"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tex-Ok-PWf">
                                         <rect key="frame" x="0.0" y="0.0" width="310" height="150"/>
@@ -169,8 +169,8 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.08977373256" green="0.88422815659999998" blue="0.95523184539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="KHG-Na-CKl">
-                                        <rect key="frame" x="0.0" y="158" width="310" height="213.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="KHG-Na-CKl">
+                                        <rect key="frame" x="0.0" y="158" width="310" height="214"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eu5-0g-Hkx">
                                                 <rect key="frame" x="0.0" y="0.0" width="310" height="20.5"/>
@@ -179,8 +179,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XKa-a7-aZX">
-                                                <rect key="frame" x="0.0" y="36.5" width="310" height="177"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XKa-a7-aZX">
+                                                <rect key="frame" x="0.0" y="36.5" width="310" height="177.5"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -189,20 +189,30 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWN-mB-eEu">
-                                <rect key="frame" x="74" y="479" width="226" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWN-mB-eEu">
+                                <rect key="frame" x="149" y="479" width="76" height="30"/>
                                 <state key="normal" title="Send Email"/>
+                                <connections>
+                                    <action selector="sendEmail:" destination="qIO-RS-twj" eventType="touchUpInside" id="BFD-HR-Zth"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="xem-mT-UyO" firstAttribute="centerX" secondItem="IWN-mB-eEu" secondAttribute="centerX" id="8vT-Zz-599"/>
                             <constraint firstItem="xem-mT-UyO" firstAttribute="leading" secondItem="DHI-y4-yzt" secondAttribute="leading" constant="32" id="Acw-6v-YMH"/>
                             <constraint firstItem="DHI-y4-yzt" firstAttribute="trailing" secondItem="xem-mT-UyO" secondAttribute="trailing" constant="33" id="JQB-Yd-cgq"/>
                             <constraint firstItem="xem-mT-UyO" firstAttribute="top" secondItem="DHI-y4-yzt" secondAttribute="top" constant="26" id="TvK-NZ-0VH"/>
+                            <constraint firstItem="IWN-mB-eEu" firstAttribute="top" secondItem="xem-mT-UyO" secondAttribute="bottom" constant="17" id="VZH-bB-jjo"/>
+                            <constraint firstAttribute="bottom" secondItem="xem-mT-UyO" secondAttribute="bottom" constant="205" id="cxg-6d-HKb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DHI-y4-yzt"/>
                     </view>
+                    <connections>
+                        <outlet property="emailAddress" destination="aXh-9M-yQd" id="7D5-O6-TqG"/>
+                        <outlet property="name" destination="izV-e8-1Rk" id="Ltq-aC-jNz"/>
+                        <outlet property="textInput" destination="XKa-a7-aZX" id="7d5-Pt-lcW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CtD-xS-AGb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

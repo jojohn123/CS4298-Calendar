@@ -11,14 +11,12 @@ import MessageUI
 
 class EmailViewController: UIViewController,UITextViewDelegate, MFMailComposeViewControllerDelegate {
 
-    @IBOutlet weak var NameField: UITextField!
-    @IBOutlet weak var EmailField: UITextField!
-    @IBOutlet weak var Message: UITextView!
     
     @IBOutlet weak var btn: UIButton!
-    
-    
 
+    @IBOutlet weak var name: UITextField!
+    @IBOutlet weak var emailAddress: UITextField!
+    @IBOutlet weak var textInput: UITextView!
     
     @IBAction func dismissKeyboard(_ sender: Any) {
         
@@ -49,30 +47,39 @@ class EmailViewController: UIViewController,UITextViewDelegate, MFMailComposeVie
         
     }
    
-    @IBAction func sendemail(_ sender: Any) {
+
+    
+    @IBAction func sendEmail(_ sender: UIButton) {
+        if MFMailComposeViewController.canSendMail() {
+            let mc = MFMailComposeViewController()
+            mc.mailComposeDelegate = self
+            let recipients = ["abc@123.com"]
+            mc.setToRecipients(recipients)
+            mc.setSubject(name.text! + " - my app")
+            mc.setMessageBody("<p>Name: \(name.text!)</p><p>Email: \(emailAddress.text!)</p><p>Message: \(textInput.text!)</p>", isHTML: true)
+            self.present(mc, animated: true)
+        } else {
+            print("Cannot send email!")
+        }
         
-        let mc : MFMailComposeViewController = MFMailComposeViewController()
         
-        mc.mailComposeDelegate = self
-        
-        let recipients = ["abc@123.com"]
-        
-        mc.setToRecipients(recipients)
-        mc.setSubject(NameField.text! + " - my app")
-        mc.setMessageBody("""
-            Name: \(NameField.text!)
-            Email: \(EmailField.text!)
-            Message: \(Message.text!)
-            """, isHTML: false)
-        
-        self.present(mc, animated: true, completion: nil)
     }
     
-   
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        
-        self.dismiss(animated: true, completion: nil)
+        switch result {
+        case MFMailComposeResult.cancelled:
+            print("Mail cancelled")
+        case MFMailComposeResult.saved:
+            print("Mail saved")
+        case MFMailComposeResult.sent:
+            print("Mail sent")
+        case MFMailComposeResult.failed:
+            print("Mail sent failure: \(String(describing: error?.localizedDescription))")
+        default:
+            break
+        }
+        self.dismiss(animated: true)
         
     }
     
