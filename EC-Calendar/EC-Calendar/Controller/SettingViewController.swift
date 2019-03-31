@@ -11,9 +11,15 @@ import UIKit
 class SettingViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var profilePic: UIImageView!
+    @IBOutlet weak var nameTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let name = UserDefaults.standard.object(forKey: "name" ) as? String {
+            self.nameTextField.text = name
+        } else {
+            self.nameTextField.placeholder = "Please Enter your name"
+        }
         
 //        var UITapRecogniser = UITapGestureRecognizer(target: self, action: "tappedImage:")
 //        UITapRecogniser.delegate = self
@@ -32,6 +38,15 @@ class SettingViewController: UIViewController, UINavigationControllerDelegate, U
         }
     }
     
+    @IBAction func saveName(_ sender: Any) {
+        guard let name = nameTextField.text else { return }
+        UserDefaults.standard.set(name , forKey: "name")
+        guard let profilePic = profilePic.image else { return }
+       
+        
+        
+        
+    }
     func chooseProfilePic() {
         let image = UIImagePickerController()
         image.delegate = self
