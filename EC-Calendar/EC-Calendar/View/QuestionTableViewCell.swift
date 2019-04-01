@@ -11,12 +11,12 @@ import UIKit
 class QuestionTableViewCell: UITableViewCell {
 
     @IBOutlet var questionBox: UITextField!
-    @IBOutlet var button: UIButton!
+//    @IBOutlet var button: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         questionBox.backgroundColor = UIColor.black
         questionBox.layer.cornerRadius = 10
-        button.setTitle("Click Here", for: .normal)
+//        button.setTitle("Click Here", for: .normal)
     }
     
     func configureCell(question: Question) {

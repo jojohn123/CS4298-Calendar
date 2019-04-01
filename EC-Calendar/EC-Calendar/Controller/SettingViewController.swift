@@ -42,10 +42,6 @@ class SettingViewController: UIViewController, UINavigationControllerDelegate, U
         guard let name = nameTextField.text else { return }
         UserDefaults.standard.set(name , forKey: "name")
         guard let profilePic = profilePic.image else { return }
-       
-        
-        
-        
     }
     func chooseProfilePic() {
         let image = UIImagePickerController()
