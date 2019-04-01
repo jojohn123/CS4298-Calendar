@@ -19,6 +19,10 @@
 		5380A23F221FCC43005FE1E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5380A23D221FCC43005FE1E4 /* LaunchScreen.storyboard */; };
 		762EE46C2247880A006A0D05 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762EE46B2247880A006A0D05 /* EmailViewController.swift */; };
 		762EE46F22478C80006A0D05 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762EE46E22478C80006A0D05 /* MessageUI.framework */; };
+		E1FE02362251CF1100F3BEEB /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE02352251CF1100F3BEEB /* Question.swift */; };
+		E1FE023A2251CF6000F3BEEB /* QueAndAnsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE02392251CF6000F3BEEB /* QueAndAnsViewController.swift */; };
+		E1FE023C2251CF8D00F3BEEB /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE023B2251CF8D00F3BEEB /* QuestionTableViewCell.swift */; };
+		E1FE023E2251CFC500F3BEEB /* QuesitonSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE023D2251CFC500F3BEEB /* QuesitonSet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +41,10 @@
 		762EE46B2247880A006A0D05 /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		762EE46E22478C80006A0D05 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		E1F43DB822413A6B00DAC8D6 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		E1FE02352251CF1100F3BEEB /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		E1FE02392251CF6000F3BEEB /* QueAndAnsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueAndAnsViewController.swift; sourceTree = "<group>"; };
+		E1FE023B2251CF8D00F3BEEB /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
+		E1FE023D2251CFC500F3BEEB /* QuesitonSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuesitonSet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,7 @@
 			children = (
 				512239B72250FF3D00D3A51C /* ProfilePicView.swift */,
 				512239B92251032300D3A51C /* UpdateProfilePicButtonView.swift */,
+				E1FE023B2251CF8D00F3BEEB /* QuestionTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -66,6 +75,8 @@
 				513F78D62244C72B00593035 /* DiaryViewController.swift */,
 				53210246223E3EE60063A62F /* CalendarViewController.swift */,
 				51DD0A0A224E28C70046DBFA /* SettingViewController.swift */,
+				E1FE02392251CF6000F3BEEB /* QueAndAnsViewController.swift */,
+				762EE46B2247880A006A0D05 /* EmailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -95,7 +106,8 @@
 				5380A234221FCC41005FE1E4 /* AppDelegate.swift */,
 				5380A236221FCC41005FE1E4 /* ViewController.swift */,
 				5380A238221FCC41005FE1E4 /* Main.storyboard */,
-				762EE46B2247880A006A0D05 /* EmailViewController.swift */,
+				E1FE02352251CF1100F3BEEB /* Question.swift */,
+				E1FE023D2251CFC500F3BEEB /* QuesitonSet.swift */,
 				5380A23B221FCC43005FE1E4 /* Assets.xcassets */,
 				5380A23D221FCC43005FE1E4 /* LaunchScreen.storyboard */,
 				5380A240221FCC43005FE1E4 /* Info.plist */,
@@ -183,9 +195,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1FE023C2251CF8D00F3BEEB /* QuestionTableViewCell.swift in Sources */,
 				513F78D72244C72B00593035 /* DiaryViewController.swift in Sources */,
 				53210247223E3EE60063A62F /* CalendarViewController.swift in Sources */,
+				E1FE023A2251CF6000F3BEEB /* QueAndAnsViewController.swift in Sources */,
+				E1FE023E2251CFC500F3BEEB /* QuesitonSet.swift in Sources */,
 				5380A237221FCC41005FE1E4 /* ViewController.swift in Sources */,
+				E1FE02362251CF1100F3BEEB /* Question.swift in Sources */,
 				5380A235221FCC41005FE1E4 /* AppDelegate.swift in Sources */,
 				512239BA2251032300D3A51C /* UpdateProfilePicButtonView.swift in Sources */,
 				762EE46C2247880A006A0D05 /* EmailViewController.swift in Sources */,
