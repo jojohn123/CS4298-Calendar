@@ -18,7 +18,8 @@ class CalendarViewController: UIViewController,UICollectionViewDataSource,UIColl
     
     var currentYear = Calendar.current.component(.year, from: Date())
     
-    var currentMonth = Calendar.current.component(.month, from: Date())
+//    var currentMonth = Calendar.current.component(.month, from: Date())
+    var currentMonth = Calendar.current.component(.month, from: Date()) - 1
     
     var dayKeyToPass = ""
     
@@ -169,9 +170,12 @@ class CalendarViewController: UIViewController,UICollectionViewDataSource,UIColl
     }
     
     func isToday(_ day: String) -> Bool {
+//        let sameYear = currentYear == Calendar.current.component(.year, from: Date())
+//        let sameMonth = currentMonth == Calendar.current.component(.month, from: Date())
+//        let sameDay = (Int(day)!) == Calendar.current.component(.day, from: Date())
         let sameYear = currentYear == Calendar.current.component(.year, from: Date())
-        let sameMonth = currentMonth == Calendar.current.component(.month, from: Date())
-        let sameDay = Int(day) == Calendar.current.component(.day, from: Date())
+        let sameMonth = currentMonth == 3
+        let sameDay = Int(day) == 31
         return sameYear && sameMonth && sameDay
     }
     

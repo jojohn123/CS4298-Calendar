@@ -42,7 +42,8 @@
 		5380A240221FCC43005FE1E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		762EE46B2247880A006A0D05 /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		762EE46E22478C80006A0D05 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		E1F43DB822413A6B00DAC8D6 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		E1D953DA22521F0D00EAABA9 /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/Main.strings"; sourceTree = "<group>"; };
+		E1D953DB22521F0D00EAABA9 /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		E1FE02352251CF1100F3BEEB /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		E1FE02392251CF6000F3BEEB /* QueAndAnsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueAndAnsViewController.swift; sourceTree = "<group>"; };
 		E1FE023B2251CF8D00F3BEEB /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
@@ -176,7 +177,6 @@
 			knownRegions = (
 				en,
 				Base,
-				"zh-Hant",
 			);
 			mainGroup = 5380A228221FCC41005FE1E4;
 			productRefGroup = 5380A232221FCC41005FE1E4 /* Products */;
@@ -229,7 +229,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				5380A239221FCC41005FE1E4 /* Base */,
-				E1F43DB822413A6B00DAC8D6 /* zh-Hant */,
+				E1D953DA22521F0D00EAABA9 /* zh-HK */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -238,6 +238,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				5380A23E221FCC43005FE1E4 /* Base */,
+				E1D953DB22521F0D00EAABA9 /* zh-HK */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

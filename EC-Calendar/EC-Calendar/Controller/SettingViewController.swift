@@ -18,7 +18,12 @@ class SettingViewController: UIViewController, UINavigationControllerDelegate, U
         if let name = UserDefaults.standard.object(forKey: "name" ) as? String {
             self.nameTextField.text = name
         } else {
-            self.nameTextField.placeholder = "Please Enter your name"
+            if isEnglish() {
+                self.nameTextField.placeholder = "Please enter your name"
+            } else {
+                self.nameTextField.placeholder = "請輸入你的名字"
+            }
+            
         }
         
 //        var UITapRecogniser = UITapGestureRecognizer(target: self, action: "tappedImage:")
@@ -64,14 +69,8 @@ class SettingViewController: UIViewController, UINavigationControllerDelegate, U
         print("hello")
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func isEnglish() -> Bool {
+        let lang = NSLocale.preferredLanguages[0]
+        return lang.contains("en")
     }
-    */
-
 }

@@ -28,7 +28,10 @@ class DiaryViewController: UIViewController, UITextFieldDelegate {
         if let contentText = UserDefaults.standard.object(forKey: contentKey ) as? String {
             self.contentText.text = contentText
         } else {
-            self.contentText.text = "enter your diary here"
+            if isEnglish() {
+                self.contentText.text = "Enter your diary here"
+            }
+                self.contentText.text = "請在此輸入你的日記"
         }
         dateOfThisDay.text = thisDateKey
         
@@ -59,14 +62,10 @@ class DiaryViewController: UIViewController, UITextFieldDelegate {
         alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func isEnglish() -> Bool {
+        let lang = NSLocale.preferredLanguages[0]
+        return lang.contains("en")
     }
-    */
 
 }
